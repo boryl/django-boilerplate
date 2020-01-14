@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/Users/bjorn-ollerylander/.local/share/virtualenvs/django-boilerplate-BDslRfy0/bin/python",
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
+}
