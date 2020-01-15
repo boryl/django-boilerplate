@@ -6,6 +6,7 @@ from apps.catalog.models import (
     Genre,
     Language
 )
+from django.utils.dateparse import parse_date
 
 
 @pytest.fixture
@@ -13,8 +14,8 @@ def author(db):
     return Author.objects.create(
         first_name='Förnamn',
         last_name='Efternamn',
-        date_of_birth='1900-12-31',
-        date_of_death='2011-12-12'
+        date_of_birth=parse_date('1900-12-31'),
+        date_of_death=parse_date('2011-12-12')
     )
 
 
@@ -38,7 +39,7 @@ def book(db, author):
 def book_instance(db, book):
     return BookInstance.objects.create(
             imprint='Lorem ipsum',
-            due_back='2019-12-14',
+            due_back=parse_date('2019-12-14'),
             status='o',
             book=book
         )

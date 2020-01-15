@@ -6,6 +6,8 @@ class TestCatalogModels:
         assert author.date_of_death
         assert author.pk
 
+        assert author.get_absolute_url()
+
     def test_book_model(client, book):
         assert book.title
         assert book.summary
@@ -25,3 +27,4 @@ class TestCatalogModels:
         assert book_instance.due_back
         assert book_instance.status
         assert book_instance.book.title
+        assert book_instance.is_overdue
