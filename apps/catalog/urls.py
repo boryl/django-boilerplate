@@ -18,4 +18,9 @@ urlpatterns = [
         views.LoanedBooksByUserListView.as_view(),
         name='my-borrowed'
     ),
+    path(
+        'borrowedbooks/',
+        views.LoanedBooksListView.as_view(),
+        name='all-borrowed'
+    ),
 ]

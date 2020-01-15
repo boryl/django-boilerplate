@@ -3,6 +3,7 @@ from django.urls import reverse
 import uuid
 from django.conf import settings
 from datetime import date
+from apps.catalog.managers import BorrowedBooksManager
 
 
 class Genre(models.Model):
@@ -131,6 +132,9 @@ class BookInstance(models.Model):
         """String for representing the Model object."""
         return f'{self.id} ({self.book.title})'
 
+    objects = models.Manager()
+    borrowed_books = BorrowedBooksManager()
+
 
 class Author(models.Model):
     """Model representing an author."""
@@ -144,7 +148,7 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
-        return reverse('author-detail', args=[str(self.id)])
+        return reverse('catalog:author-detail', args=[str(self.id)])
 
     def __str__(self):
         """String for representing the Model object."""
