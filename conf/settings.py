@@ -19,7 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 ENV = os.getenv('DJANGO_ENV')
-DEBUG = os.getenv('DEBUG')
+DEBUG = (os.getenv("DEBUG") == 'True')
+print(DEBUG)
 SECRET_KEY = os.getenv('SECRET_KEY')
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
@@ -67,7 +68,7 @@ LOGGING = {
 }
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
