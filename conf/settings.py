@@ -163,3 +163,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     'static/',
 ]
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/catalog/'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
