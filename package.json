@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/boryl/django-boilerplate.git"
   },
-  "author": "BO",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/boryl/django-boilerplate/issues"
