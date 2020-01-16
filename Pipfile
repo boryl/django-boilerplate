@@ -12,6 +12,10 @@ pytest-django = "*"
 psycopg2 = "*"
 python-dotenv = "*"
 dj-database-url = "*"
+django-webpack-loader = "*"
+whitenoise = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"
