@@ -26,47 +26,41 @@ DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
-LOGS_ROOT = os.getenv('LOGS_ROOT')
+# LOGS_ROOT = os.getenv('LOGS_ROOT')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
-        'console_format': {
-            'format': '%(name)-12s %(levelname)-8s %(message)s'
+        'verbose': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s] ' +
+                       'pathname=%(pathname)s lineno=%(lineno)s ' +
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
         },
-        'file_format': {
-            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        'simple': {
+            'format': '%(levelname)s %(message)s'
         }
     },
     'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'console_format'
-        },
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(LOGS_ROOT, 'django.log'),
-            'maxBytes': 1024 * 1024 * 15,  # 15MB
-            'backupCount': 10,
-            'formatter': 'file_format',
-        },
+            'formatter': 'verbose'
+        }
     },
     'loggers': {
-        'django': {
+        'testlogger': {
+            'handlers': ['console'],
             'level': 'INFO',
-            'handlers': ['console', 'file'],
-            'propagate': False,
-        },
-        'apps': {
-            'level': 'DEBUG',
-            'handlers': ['console', 'file'],
-            'propagate': False,
         }
     }
 }
 
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ['*']
 
