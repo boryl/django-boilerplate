@@ -186,6 +186,9 @@ WEBPACK_LOADER = {
 LOGIN_REDIRECT_URL = '/catalog/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 # override DATABASE_URL set by django_heroku because it forces SSL mode locally
