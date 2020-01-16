@@ -28,7 +28,7 @@ const styleRule = {
 const jsRule = {
   test: /\.js$/,
   loader: 'babel-loader',
-  include: path.resolve('./static/src/js'),
+  include: path.resolve('./static/js'),
   exclude: /node_modules/
 };
 
@@ -54,7 +54,7 @@ const plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new CleanWebpackPlugin(),
   new CopyWebpackPlugin([
-    { from: './static/src/images/**/*', to: path.resolve('./static/dist/images/[name].[ext]'), toType: 'template' }
+    { from: './static/images/**/*', to: path.resolve('./assets/images/[name].[ext]'), toType: 'template' }
   ])
 ];
 
@@ -77,9 +77,9 @@ if (devMode) {
 
 module.exports = {
   context: __dirname,
-  entry: './static/src/js/index.js',
+  entry: './static/js/index.js',
   output: {
-    path: path.resolve('./static/dist/'),
+    path: path.resolve('./assets/'),
     filename: '[name]-[hash].js',
     publicPath: hotReload ? 'http://localhost:8080/' : ''
   },

@@ -148,7 +148,8 @@ assets/bundles/style-dev-main.css
 assets/bundles/style-dev-main.css.map
 assets/bundles/script-dev-main.js
 assets/bundles/script-dev-main.js.map
-static/dist
+assets
+staticfiles
 
 package-lock.json
 .DS_Store
