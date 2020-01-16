@@ -166,8 +166,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/dist")
 ]
 
-# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # MIDDLEWARE.insert(0, "whitenoise.middleware.WhiteNoiseMiddleware")
 
