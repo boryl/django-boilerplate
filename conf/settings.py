@@ -26,6 +26,8 @@ DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
+# DEBUG_PROPAGATE_EXCEPTIONS = True
+
 # LOGS_ROOT = os.getenv('LOGS_ROOT')
 LOGGING = {
     'version': 1,
@@ -59,8 +61,6 @@ LOGGING = {
         }
     }
 }
-
-DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ['*']
 
