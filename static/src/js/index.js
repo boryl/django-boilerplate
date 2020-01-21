@@ -1,2 +1,2 @@
-import './scripts.js';
 import '../scss/styles.scss';
+import './scripts.js';

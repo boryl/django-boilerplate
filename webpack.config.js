@@ -77,7 +77,11 @@ if (devMode) {
 
 module.exports = {
   context: __dirname,
-  entry: './static/js/index.js',
+  entry: [
+    "webpack-dev-server/client?http://127.0.0.0/",
+    "webpack/hot/only-dev-server",
+    "./static/js/index.js"
+  ],
   output: {
     path: path.resolve('./assets/'),
     filename: '[name]-[hash].js',
@@ -87,7 +91,7 @@ module.exports = {
   devServer: {
     hot: true,
     quiet: false,
-    headers: { 'Access-Control-Allow-Origin': '*' }
+    headers: { 'Access-Control-Allow-Origin': '\*' }
   },
   module: { rules: [jsRule, styleRule, assetRule] },
   externals: { jquery: 'jQuery', Sentry: 'Sentry' },
